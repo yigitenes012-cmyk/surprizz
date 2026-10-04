@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover">
+<title>Merv🌟</title>
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;font-family:Arial,sans-serif;background:#080910;color:#fff}
+body{overflow-x:hidden;background:
+ radial-gradient(circle at 20% 10%,#33224d 0,transparent 35%),
+ radial-gradient(circle at 90% 20%,#172c52 0,transparent 32%),
+ #080910}
+button{font:inherit}
+.app{min-height:100vh;display:flex;justify-content:center;padding:18px}
+.phone{width:min(100%,430px);min-height:calc(100vh - 36px);position:relative;overflow:hidden;border-radius:34px;background:rgba(9,10,18,.78);border:1px solid rgba(255,255,255,.12);box-shadow:0 25px 80px #0009;padding:20px 18px 28px}
+.top{display:flex;justify-content:space-between;align-items:center;color:#aaa;font-size:13px}
+.badge{padding:7px 11px;border:1px solid #ffffff18;border-radius:20px;background:#ffffff08}
+.hero{text-align:center;padding:34px 5px 18px}
+.star{font-size:56px;filter:drop-shadow(0 0 18px #ffd34d);animation:float 2s ease-in-out infinite}
+h1{font-size:40px;margin:10px 0 5px}
+.sub{color:#c6c8d5;line-height:1.5}
+.mainbtn,.smallbtn{border:0;border-radius:999px;padding:14px 20px;font-weight:800;cursor:pointer}
+.mainbtn{background:linear-gradient(135deg,#ffd95a,#ff9d4d);color:#17130b;box-shadow:0 10px 30px #ffbd4b33}
+.smallbtn{background:#ffffff10;color:#fff;border:1px solid #ffffff18}
+.content{display:none}
+.content.show{display:block;animation:up .6s ease}
+.photo{display:block;width:145px;height:145px;object-fit:cover;border-radius:25px;margin:12px auto 18px;border:3px solid #ffd85a88;box-shadow:0 0 35px #ffd85a22}
+.counter{padding:13px 10px;text-align:center;border-radius:18px;background:#ffffff08;color:#ffd85a;font-weight:800;margin:12px 0 16px}
+.card{padding:18px;border-radius:24px;background:#ffffff08;border:1px solid #ffffff10;margin-top:14px}
+.card h2{font-size:18px;margin:0 0 8px}
+.card p{color:#cfd0da;line-height:1.65;margin:0}
+.actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
+.music{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.music span{font-size:14px;color:#ddd}
+.msg{display:none;text-align:center;line-height:1.75;color:#f4f4f7}
+.msg.show{display:block;animation:up .6s ease}
+.bigheart{font-size:62px;text-align:center;cursor:pointer;user-select:none;transition:.2s}
+.bigheart:active{transform:scale(.85)}
+.game{display:none;text-align:center}
+.game.show{display:block}
+#gameTarget{font-size:45px;display:inline-block;cursor:pointer;padding:8px}
+.score{color:#ffd85a;font-weight:800}
+.toast{position:fixed;left:50%;bottom:25px;transform:translate(-50%,20px);opacity:0;background:#191a25;border:1px solid #ffffff18;padding:12px 16px;border-radius:16px;z-index:20;transition:.3s;white-space:nowrap}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+.float{position:fixed;pointer-events:none;z-index:15;font-size:20px;animation:fall 2.8s linear forwards}
+.heart{position:fixed;pointer-events:none;z-index:15;color:#ff5f86;font-size:22px;animation:heart 1.2s ease-out forwards}
+@keyframes float{50%{transform:translateY(-8px)}}
+@keyframes up{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@keyframes fall{to{transform:translateY(105vh) rotate(360deg);opacity:0}}
+@keyframes heart{to{transform:translateY(-120px) scale(1.7);opacity:0}}
+</style>
+</head>
+<body>
+<div class="app">
+  <main class="phone">
+    <div class="top"><span>Enes'ten bir şeyler 🤭</span><span class="badge">Merv🌟</span></div>
+
+    <section class="hero" id="hero">
+      <div class="star">🌟</div>
+      <h1>Merv🌟</h1>
+      <p class="sub">Sana özel küçük bir şey hazırladım.<br>Hazırsan başlayalım...</p>
+      <button class="mainbtn" id="openBtn">✨ Aç</button>
+    </section>
+
+    <section class="content" id="content">
+      <img class="photo" src="merv.jpg" alt="Merv">
+      <div class="counter" id="counter">🎂 Hesaplanıyor...</div>
+
+      <div class="card music">
+        <span>🎵 IT WON'T BE ME</span>
+        <button class="smallbtn" id="musicBtn">▶ Başlat</button>
+        <audio id="music" src="song.opus" loop preload="auto"></audio>
+      </div>
+
+      <div class="card">
+        <h2>🤍 Küçük bir not</h2>
+        <p>Biraz aşağıda seni bekleyen birkaç şey daha var. Hepsine bakmadan çıkmak yok. 🤭</p>
+        <div class="actions">
+          <button class="smallbtn" id="noteBtn">💌 Notu Aç</button>
+          <button class="smallbtn" id="heartBtn">💗 Kalbe Bas</button>
+          <button class="smallbtn" id="gameBtn">🎮 Mini Oyun</button>
+          <button class="smallbtn" id="secretBtn">🔒 Gizli</button>
+        </div>
+      </div>
+
+      <div class="card msg" id="message">
+        <p>
+          İyi ki doğdun, iyi ki varsın. 🤍<br><br>
+          Bana hayatı sevdiren kişi sendin.<br><br>
+          Bunun için çok teşekkür ederim. 🤍
+        </p>
+      </div>
+
+      <div class="card game" id="game">
+        <h2>⭐ Yıldızı yakala!</h2>
+        <p>10 saniyede kaç tane yakalayabilirsin?</p>
+        <div class="score" id="score">Skor: 0</div>
+        <div id="gameTarget">⭐</div>
+      </div>
+    </section>
+  </main>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+const birthday = new Date("2026-10-12T00:00:00").getTime();
+const music = document.getElementById("music");
+const toast = document.getElementById("toast");
+let gameRunning=false, score=0;
+
+function pop(text){
+  toast.textContent=text;
+  toast.classList.add("show");
+  setTimeout(()=>toast.classList.remove("show"),1800);
+}
+function sparkle(){
+  for(let i=0;i<18;i++){
+    setTimeout(()=>{
+      const e=document.createElement("div");
+      e.className="float"; e.textContent=Math.random()>.45?"⭐":"✨";
+      e.style.left=Math.random()*100+"vw"; e.style.top="-25px";
+      document.body.appendChild(e);
+      setTimeout(()=>e.remove(),3000);
+    },i*55);
+  }
+}
+function hearts(){
+  for(let i=0;i<18;i++){
+    setTimeout(()=>{
+      const e=document.createElement("div");
+      e.className="heart"; e.textContent="♥";
+      e.style.left=(20+Math.random()*60)+"vw";
+      e.style.top=(45+Math.random()*20)+"vh";
+      document.body.appendChild(e);
+      setTimeout(()=>e.remove(),1300);
+    },i*55);
+  }
+}
+function updateCounter(){
+  const d=birthday-Date.now();
+  const el=document.getElementById("counter");
+  if(d<=0){el.textContent="🎂 Bugün Merv'in günü! 🌟";return}
+  const days=Math.floor(d/86400000);
+  const hours=Math.floor(d%86400000/3600000);
+  const mins=Math.floor(d%3600000/60000);
+  const secs=Math.floor(d%60000/1000);
+  el.textContent=`🎂 ${days} gün ${hours} saat ${mins} dk ${secs} sn`;
+}
+setInterval(updateCounter,1000); updateCounter();
+
+document.getElementById("openBtn").onclick=()=>{
+  document.getElementById("hero").style.display="none";
+  document.getElementById("content").classList.add("show");
+  sparkle();
+  pop("Merv için özel olarak açıldı 🤭");
+};
+
+document.getElementById("musicBtn").onclick=async()=>{
+  try{
+    if(music.paused){await music.play();event.target.textContent="⏸ Durdur"}
+    else{music.pause();event.target.textContent="▶ Başlat"}
+  }catch(e){pop("Müziği başlatmak için tekrar dokun 🤍")}
+};
+
+document.getElementById("noteBtn").onclick=()=>{
+  document.getElementById("message").classList.toggle("show");
+  sparkle();
+};
+
+document.getElementById("heartBtn").onclick=()=>{
+  hearts(); pop("Tamam, kalbi gördüm 😂🤍");
+};
+
+document.getElementById("secretBtn").onclick=()=>{
+  pop("Gizli butonu buldun. 👀🌟");
+  setTimeout(()=>alert("Merv🌟, bu sayfayı açtıysan görev tamamlandı. İyi ki doğdun 🤍"),300);
+};
+
+document.getElementById("gameBtn").onclick=()=>{
+  document.getElementById("game").classList.toggle("show");
+  pop("10 saniye! Yıldızı yakala ⭐");
+};
+
+document.getElementById("gameTarget").onclick=()=>{
+  if(!gameRunning){
+    gameRunning=true; score=0;
+    const start=Date.now();
+    document.getElementById("score").textContent="Skor: 0";
+    const timer=setInterval(()=>{
+      if(Date.now()-start>=10000){
+        clearInterval(timer); gameRunning=false;
+        pop("Süren bitti! Skorun: "+score+" ⭐");
+      }
+    },100);
+  }
+  if(gameRunning){
+    score++;
+    document.getElementById("score").textContent="Skor: "+score;
+    const t=document.getElementById("gameTarget");
+    t.style.transform=`translate(${Math.random()*90-45}px,${Math.random()*70-35}px)`;
+  }
+};
+</script>
+</body>
+</html>
