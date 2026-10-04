@@ -5,6 +5,46 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover">
 <title>Merv🌟</title>
 <style>
+ #rotateScreen{
+  position:fixed;
+  inset:0;
+  z-index:99999;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  text-align:center;
+  padding:25px;
+  background:
+    radial-gradient(circle at 50% 40%,#33224d,#080910 70%);
+  color:white;
+}
+
+#rotateScreen h2{
+  margin:18px 0 8px;
+  font-size:28px;
+}
+
+#rotateScreen p{
+  color:#c6c8d5;
+  font-size:16px;
+}
+
+.rotateIcon{
+  font-size:65px;
+  animation:rotatePhone 1.8s ease-in-out infinite;
+}
+
+@keyframes rotatePhone{
+  0%,100%{transform:rotate(0deg)}
+  50%{transform:rotate(90deg)}
+}
+
+@media (orientation:portrait){
+  #rotateScreen{
+    display:flex;
+  }
+}
 *{box-sizing:border-box}
 html,body{margin:0;min-height:100%;font-family:Arial,sans-serif;background:#080910;color:#fff}
 body{overflow-x:hidden;background:
@@ -52,6 +92,11 @@ h1{font-size:40px;margin:10px 0 5px}
 </style>
 </head>
 <body>
+ <div id="rotateScreen">
+  <div class="rotateIcon">📱↔️</div>
+  <h2>Telefonunu yan çevir</h2>
+  <p>Bu sürpriz yatay ekranda daha güzel 🤭</p>
+ </div>
 <div class="app">
   <main class="phone">
     <div class="top"><span>Enes'ten bir şeyler 🤭</span><span class="badge">Merv🌟</span></div>
