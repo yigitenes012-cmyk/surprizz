@@ -100,6 +100,45 @@ h1{font-size:40px;margin:10px 0 5px}
   transform: rotate(-15deg);
 }
 
+/* Kalp Birleşme Efekti Alanı */
+.heart-build-area{
+  position: relative;
+  height: 140px;
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px dashed rgba(255, 95, 134, 0.3);
+}
+.merged-heart{
+  font-size: 75px;
+  opacity: 0;
+  transform: scale(0.2);
+  transition: transform 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.8s ease;
+  filter: drop-shadow(0 0 20px #ff5f86);
+}
+.merged-heart.formed{
+  opacity: 1;
+  transform: scale(1);
+  animation: pulse 1.5s ease-in-out infinite alternate;
+}
+.heart-particle{
+  position: absolute;
+  color: #ff5f86;
+  font-size: 16px;
+  pointer-events: none;
+  transition: all 1.8s cubic-bezier(0.25, 1, 0.5, 1);
+  opacity: 1;
+}
+
+@keyframes pulse{
+  from{ transform: scale(1); filter: drop-shadow(0 0 15px #ff5f86); }
+  to{ transform: scale(1.12); filter: drop-shadow(0 0 30px #ff2a5f); }
+}
+
 .counter{padding:13px 10px;text-align:center;border-radius:18px;background:#ffffff08;color:#ffd85a;font-weight:800;margin:12px 0 16px}
 .card{padding:18px;border-radius:24px;background:#ffffff08;border:1px solid #ffffff10;margin-top:14px}
 .card h2{font-size:18px;margin:0 0 8px}
@@ -165,8 +204,13 @@ h1{font-size:40px;margin:10px 0 5px}
         <div class="actions">
           <button class="smallbtn" id="noteBtn">💌 Notu Aç</button>
           <button class="smallbtn" id="heartBtn">💗 Kalbe Bas</button>
+          <button class="smallbtn" id="mergeBtn">✨ Kalbi Birleştir</button>
           <button class="smallbtn" id="gameBtn">🎮 Mini Oyun</button>
           <button class="smallbtn" id="secretBtn">🔒 Gizli</button>
+        </div>
+
+        <div class="heart-build-area" id="heartArea" style="display:none;">
+          <div class="merged-heart" id="mergedHeart">💖</div>
         </div>
       </div>
 
@@ -257,6 +301,57 @@ document.getElementById("noteBtn").onclick=()=>{
 
 document.getElementById("heartBtn").onclick=()=>{
   hearts(); pop("Tamam, kalbi gördüm 😂🤍");
+};
+
+// Kalp Birleştirme Efekti
+document.getElementById("mergeBtn").onclick=()=>{
+  const area = document.getElementById("heartArea");
+  const bigHeart = document.getElementById("mergedHeart");
+  
+  area.style.display = "flex";
+  bigHeart.classList.remove("formed");
+  pop("Parçalar birleşiyor... 💖");
+
+  // Eski kalıntı parçaları temizle
+  const oldParticles = area.querySelectorAll('.heart-particle');
+  oldParticles.forEach(p => p.remove());
+
+  const particleCount = 24;
+  const rect = area.getBoundingClientRect();
+  const centerX = rect.width / 2;
+  const centerY = rect.height / 2;
+
+  for(let i=0; i < particleCount; i++){
+    const p = document.createElement("span");
+    p.className = "heart-particle";
+    p.textContent = Math.random() > 0.3 ? "✨" : "🌸";
+    
+    // Etrafa rastgele dağıt
+    const angle = Math.random() * Math.PI * 2;
+    const distance = 80 + Math.random() * 60;
+    const startX = centerX + Math.cos(angle) * distance - 8;
+    const startY = centerY + Math.sin(angle) * distance - 8;
+
+    p.style.left = startX + "px";
+    p.style.top = startY + "px";
+
+    area.appendChild(p);
+
+    // Yavaşça merkeze doğru toplanma hareketi
+    setTimeout(()=>{
+      p.style.left = centerX - 8 + "px";
+      p.style.top = centerY - 8 + "px";
+      p.style.opacity = "0";
+      p.style.transform = "scale(0.3)";
+    }, 100 + (i * 30));
+  }
+
+  // Bütün parçalar merkeze gelince büyük kalp oluşur
+  setTimeout(()=>{
+    bigHeart.classList.add("formed");
+    hearts();
+    pop("Senin için birleşti! 🤍");
+  }, 1800);
 };
 
 document.getElementById("secretBtn").onclick=()=>{
