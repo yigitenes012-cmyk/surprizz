@@ -72,7 +72,17 @@ h1{font-size:40px;margin:10px 0 5px}
   width: max-content;
   margin: 12px auto 18px;
 }
-.photo{display:block;width:145px;height:145px;object-fit:cover;border-radius:25px;margin:0 auto;border:3px solid #ffd85a88;box-shadow:0 0 35px #ffd85a22}
+.photo{
+  display:block;
+  width:145px;
+  height:145px;
+  object-fit:cover;
+  border-radius:25px;
+  margin:0 auto;
+  border:3px solid #ffd85a88;
+  box-shadow:0 0 35px #ffd85a22;
+  transform: rotate(10deg); /* Fotoğrafı bir tık sağa çevirdik */
+}
 .photo-pointer{
   position: absolute;
   top: 10px;
@@ -312,7 +322,6 @@ document.getElementById("mergeBtn").onclick=()=>{
   bigHeart.classList.remove("formed");
   pop("Parçalar birleşiyor... 💖");
 
-  // Eski kalıntı parçaları temizle
   const oldParticles = area.querySelectorAll('.heart-particle');
   oldParticles.forEach(p => p.remove());
 
@@ -326,7 +335,6 @@ document.getElementById("mergeBtn").onclick=()=>{
     p.className = "heart-particle";
     p.textContent = Math.random() > 0.3 ? "✨" : "🌸";
     
-    // Etrafa rastgele dağıt
     const angle = Math.random() * Math.PI * 2;
     const distance = 80 + Math.random() * 60;
     const startX = centerX + Math.cos(angle) * distance - 8;
@@ -337,7 +345,6 @@ document.getElementById("mergeBtn").onclick=()=>{
 
     area.appendChild(p);
 
-    // Yavaşça merkeze doğru toplanma hareketi
     setTimeout(()=>{
       p.style.left = centerX - 8 + "px";
       p.style.top = centerY - 8 + "px";
@@ -346,7 +353,6 @@ document.getElementById("mergeBtn").onclick=()=>{
     }, 100 + (i * 30));
   }
 
-  // Bütün parçalar merkeze gelince büyük kalp oluşur
   setTimeout(()=>{
     bigHeart.classList.add("formed");
     hearts();
