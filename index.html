@@ -16,23 +16,24 @@
   text-align:center;
   padding:25px;
   background:
-    radial-gradient(circle at 50% 40%,#33224d,#080910 70%);
+    radial-gradient(circle at 50% 40%,#261938,#05060a 75%);
   color:white;
 }
 
 #rotateScreen h2{
   margin:18px 0 8px;
-  font-size:28px;
+  font-size:26px;
+  font-weight:700;
 }
 
 #rotateScreen p{
-  color:#c6c8d5;
-  font-size:16px;
+  color:#b8bacf;
+  font-size:15px;
 }
 
 .rotateIcon{
-  font-size:65px;
-  animation:rotatePhone 1.8s ease-in-out infinite;
+  font-size:60px;
+  animation:rotatePhone 2s ease-in-out infinite;
 }
 
 @keyframes rotatePhone{
@@ -46,25 +47,33 @@
   }
 }
 *{box-sizing:border-box}
-html,body{margin:0;min-height:100%;font-family:Arial,sans-serif;background:#080910;color:#fff}
+html,body{margin:0;min-height:100%;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:#05060a;color:#fff}
 body{overflow-x:hidden;background:
- radial-gradient(circle at 20% 10%,#33224d 0,transparent 35%),
- radial-gradient(circle at 90% 20%,#172c52 0,transparent 32%),
- #080910}
+ radial-gradient(circle at 15% 10%,#2d1d45 0,transparent 40%),
+ radial-gradient(circle at 85% 25%,#102242 0,transparent 40%),
+ #05060a}
 button{font:inherit}
-.app{min-height:100vh;display:flex;justify-content:center;padding:18px}
-.phone{width:min(100%,430px);min-height:calc(100vh - 36px);position:relative;overflow:hidden;border-radius:34px;background:rgba(9,10,18,.78);border:1px solid rgba(255,255,255,.12);box-shadow:0 25px 80px #0009;padding:20px 18px 28px}
-.top{display:flex;justify-content:space-between;align-items:center;color:#aaa;font-size:13px}
-.badge{padding:7px 11px;border:1px solid #ffffff18;border-radius:20px;background:#ffffff08}
-.hero{text-align:center;padding:34px 5px 18px}
-.star{font-size:56px;filter:drop-shadow(0 0 18px #ffd34d);animation:float 2s ease-in-out infinite}
-h1{font-size:40px;margin:10px 0 5px}
-.sub{color:#c6c8d5;line-height:1.5}
-.mainbtn,.smallbtn{border:0;border-radius:999px;padding:14px 20px;font-weight:800;cursor:pointer}
-.mainbtn{background:linear-gradient(135deg,#ffd95a,#ff9d4d);color:#17130b;box-shadow:0 10px 30px #ffbd4b33}
-.smallbtn{background:#ffffff10;color:#fff;border:1px solid #ffffff18}
+
+.app{min-height:100vh;display:flex;justify-content:center;padding:16px;align-items:center}
+.phone{width:min(100%,410px);min-height:calc(100vh - 32px);position:relative;overflow:hidden;border-radius:32px;background:rgba(12,14,24,0.82);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.08);box-shadow:0 30px 90px rgba(0,0,0,0.8);padding:22px 18px 28px}
+
+.top{display:flex;justify-content:space-between;align-items:center;color:#8f92a8;font-size:12px;font-weight:600;letter-spacing:0.5px}
+.badge{padding:6px 12px;border:1px solid rgba(255,255,255,0.1);border-radius:20px;background:rgba(255,255,255,0.04);color:#ffd85a}
+
+.hero{text-align:center;padding:45px 10px 20px}
+.star{font-size:52px;filter:drop-shadow(0 0 20px rgba(255,211,77,0.6));animation:float 2.5s ease-in-out infinite}
+h1{font-size:36px;margin:12px 0 6px;font-weight:800;letter-spacing:-0.5px}
+.sub{color:#a9abca;font-size:15px;line-height:1.6}
+
+.mainbtn,.smallbtn{border:0;border-radius:999px;padding:13px 22px;font-weight:700;cursor:pointer;transition:transform 0.2s ease, opacity 0.2s ease}
+.mainbtn:active,.smallbtn:active{transform:scale(0.96)}
+.mainbtn{background:linear-gradient(135deg,#ffd95a,#ff9d4d);color:#121008;box-shadow:0 10px 25px rgba(255,189,75,0.25);width:100%;margin-top:20px;font-size:16px}
+.smallbtn{background:rgba(255,255,255,0.06);color:#fff;border:1px solid rgba(255,255,255,0.1);font-size:13px}
+
 .content{display:none}
-.content.show{display:block;animation:up .6s ease}
+.content.show{display:block;animation:fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1)}
+
+@keyframes fadeIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
 
 /* Havai Fişek Tuvali */
 #fireworksCanvas{
@@ -81,42 +90,41 @@ h1{font-size:40px;margin:10px 0 5px}
 .photo-container{
   position: relative;
   width: max-content;
-  margin: 12px auto 18px;
+  margin: 14px auto 16px;
 }
 .photo{
   display:block;
-  width:145px;
-  height:145px;
+  width:135px;
+  height:135px;
   object-fit:cover;
-  border-radius:25px;
+  border-radius:24px;
   margin:0 auto;
-  border:3px solid #ffd85a88;
-  box-shadow:0 0 35px #ffd85a22;
+  border:2.5px solid rgba(255,216,90,0.6);
+  box-shadow:0 0 30px rgba(255,216,90,0.15);
   transform: rotate(-90deg);
 }
 .photo-pointer{
   position: absolute;
-  top: 10px;
-  right: -130px;
+  top: 8px;
+  right: -125px;
   display: flex;
   align-items: center;
   gap: 4px;
   pointer-events: none;
 }
 .arrow-text{
-  font-size: 13px;
-  font-weight: bold;
+  font-size: 12px;
+  font-weight: 700;
   color: #ffd85a;
-  background: rgba(255, 216, 90, 0.12);
-  border: 1px dashed #ffd85a88;
-  padding: 5px 9px;
-  border-radius: 12px;
-  max-width: 100px;
-  line-height: 1.2;
-  text-shadow: 0 0 8px rgba(255,216,90,0.4);
+  background: rgba(255, 216, 90, 0.1);
+  border: 1px dashed rgba(255, 216, 90, 0.5);
+  padding: 5px 8px;
+  border-radius: 10px;
+  max-width: 95px;
+  line-height: 1.25;
 }
 .arrow-icon{
-  font-size: 20px;
+  font-size: 18px;
   color: #ffd85a;
   transform: rotate(-15deg);
 }
@@ -124,45 +132,46 @@ h1{font-size:40px;margin:10px 0 5px}
 /* Çubuk Çubuk Kalp Efekti Alanı */
 .heart-build-area{
   position: relative;
-  height: 180px;
-  margin-top: 10px;
+  height: 170px;
+  margin-top: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
   border-radius: 18px;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px dashed rgba(255, 95, 134, 0.3);
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px dashed rgba(255, 95, 134, 0.25);
 }
 
 #heartCanvas{
-  width: 160px;
-  height: 160px;
+  width: 150px;
+  height: 150px;
 }
 
-.counter{padding:13px 10px;text-align:center;border-radius:18px;background:#ffffff08;color:#ffd85a;font-weight:800;margin:12px 0 16px}
-.card{padding:18px;border-radius:24px;background:#ffffff08;border:1px solid #ffffff10;margin-top:14px}
-.card h2{font-size:18px;margin:0 0 8px}
-.card p{color:#cfd0da;line-height:1.65;margin:0}
-.actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
-.music{display:flex;align-items:center;justify-content:space-between;gap:10px}
-.music span{font-size:14px;color:#ddd}
-.msg{display:none;text-align:center;line-height:1.75;color:#f4f4f7}
-.msg.show{display:block;animation:up .6s ease}
-.bigheart{font-size:62px;text-align:center;cursor:pointer;user-select:none;transition:.2s}
-.bigheart:active{transform:scale(.85)}
+.counter{padding:12px;text-align:center;border-radius:16px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);color:#ffd85a;font-weight:700;font-size:14px;margin:10px 0 14px}
+.card{padding:16px;border-radius:20px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);margin-top:12px}
+.card h2{font-size:16px;margin:0 0 6px;font-weight:700}
+.card p{color:#b0b2c3;line-height:1.6;font-size:14px;margin:0}
+.actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
+.music{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.music span{font-size:13px;color:#d0d2e0;font-weight:600}
+.msg{display:none;text-align:center;line-height:1.7;color:#ececf2;font-size:14px}
+.msg.show{display:block;animation:fadeIn 0.6s ease}
+
 .game{display:none;text-align:center}
 .game.show{display:block}
-#gameTarget{font-size:45px;display:inline-block;cursor:pointer;padding:8px}
-.score{color:#ffd85a;font-weight:800}
-.toast{position:fixed;left:50%;bottom:25px;transform:translate(-50%,20px);opacity:0;background:#191a25;border:1px solid #ffffff18;padding:12px 16px;border-radius:16px;z-index:20;transition:.3s;white-space:nowrap}
+#gameTarget{font-size:40px;display:inline-block;cursor:pointer;padding:6px;user-select:none}
+.score{color:#ffd85a;font-weight:700;margin-top:4px}
+
+.toast{position:fixed;left:50%;bottom:25px;transform:translate(-50%,20px);opacity:0;background:rgba(20,22,35,0.95);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.12);color:#fff;padding:10px 16px;border-radius:14px;z-index:20;transition:0.3s;white-space:nowrap;font-size:13px;font-weight:600;box-shadow:0 10px 30px rgba(0,0,0,0.5)}
 .toast.show{opacity:1;transform:translate(-50%,0)}
-.float{position:fixed;pointer-events:none;z-index:15;font-size:20px;animation:fall 2.8s linear forwards}
-.heart{position:fixed;pointer-events:none;z-index:15;color:#ff5f86;font-size:22px;animation:heart 1.2s ease-out forwards}
-@keyframes float{50%{transform:translateY(-8px)}}
-@keyframes up{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+
+.float{position:fixed;pointer-events:none;z-index:15;font-size:18px;animation:fall 2.8s linear forwards}
+.heart{position:fixed;pointer-events:none;z-index:15;color:#ff5f86;font-size:20px;animation:heartAnim 1.2s ease-out forwards}
+
+@keyframes float{50%{transform:translateY(-10px)}}
 @keyframes fall{to{transform:translateY(105vh) rotate(360deg);opacity:0}}
-@keyframes heart{to{transform:translateY(-120px) scale(1.7);opacity:0}}
+@keyframes heartAnim{to{transform:translateY(-110px) scale(1.6);opacity:0}}
 </style>
 </head>
 <body>
@@ -173,6 +182,7 @@ h1{font-size:40px;margin:10px 0 5px}
   <h2>Telefonunu yan çevir</h2>
   <p>Bu sürpriz yatay ekranda daha güzel 🤭</p>
  </div>
+
 <div class="app">
   <main class="phone">
     <div class="top"><span>Enes'ten bir şeyler 🤭</span><span class="badge">Merv🌟</span></div>
@@ -228,8 +238,8 @@ h1{font-size:40px;margin:10px 0 5px}
       <div class="card game" id="game">
         <h2>⭐ Yıldızı yakala!</h2>
         <p>10 saniyede kaç tane yakalayabilirsin?</p>
-        <div class="score" id="score">Skor: 0</div>
         <div id="gameTarget">⭐</div>
+        <div class="score" id="score">Skor: 0</div>
       </div>
     </section>
   </main>
@@ -238,7 +248,7 @@ h1{font-size:40px;margin:10px 0 5px}
 <div class="toast" id="toast"></div>
 
 <script>
-// --- HAVAİ FİŞEK KODU ---
+// --- HAVAİ FİŞEK SİSTEMİ ---
 const canvas = document.getElementById('fireworksCanvas');
 const ctx = canvas.getContext('2d');
 let particles = [];
@@ -261,12 +271,12 @@ class Particle {
     this.vx = Math.cos(angle) * speed;
     this.vy = Math.sin(angle) * speed;
     this.alpha = 1;
-    this.decay = Math.random() * 0.015 + 0.01;
+    this.decay = Math.random() * 0.015 + 0.009;
   }
   update() {
     this.vx *= 0.98;
     this.vy *= 0.98;
-    this.vy += 0.08;
+    this.vy += 0.07;
     this.x += this.vx;
     this.y += this.vy;
     this.alpha -= this.decay;
@@ -277,7 +287,7 @@ class Particle {
     ctx.beginPath();
     ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
     ctx.fillStyle = this.color;
-    ctx.shadowBlur = 10;
+    ctx.shadowBlur = 12;
     ctx.shadowColor = this.color;
     ctx.fill();
     ctx.restore();
@@ -286,11 +296,11 @@ class Particle {
 
 function launchFirework() {
   const x = Math.random() * canvas.width * 0.8 + canvas.width * 0.1;
-  const y = Math.random() * canvas.height * 0.4 + canvas.height * 0.1;
+  const y = Math.random() * canvas.height * 0.45 + canvas.height * 0.1;
   const colors = ['#ffd85a', '#ff5f86', '#4df3ff', '#ff9d4d', '#ffffff', '#b36bff'];
   const color = colors[Math.floor(Math.random() * colors.length)];
   
-  for (let i = 0; i < 45; i++) {
+  for (let i = 0; i < 50; i++) {
     particles.push(new Particle(x, y, color));
   }
 }
@@ -309,87 +319,104 @@ function animateFireworks() {
 }
 animateFireworks();
 
-let fireworkCount = 0;
-const fireworkInterval = setInterval(() => {
-  launchFirework();
-  fireworkCount++;
-  if (fireworkCount >= 8) clearInterval(fireworkInterval);
-}, 400);
-
-// --- SAYFA MEVCUT KODLARI ---
+// --- ZAMAN & OTOMATİK AÇILMA KONTROLÜ ---
 const birthday = new Date("2026-10-12T00:00:00").getTime();
 const music = document.getElementById("music");
 const toast = document.getElementById("toast");
-let gameRunning=false, score=0;
+let gameRunning=false, score=0, autoOpened=false;
 
 function pop(text){
   toast.textContent=text;
   toast.classList.add("show");
-  setTimeout(()=>toast.classList.remove("show"),1800);
+  setTimeout(()=>toast.classList.remove("show"),2000);
 }
+
 function sparkle(){
-  for(let i=0;i<18;i++){
+  for(let i=0;i<16;i++){
     setTimeout(()=>{
       const e=document.createElement("div");
-      e.className="float"; e.textContent=Math.random()>.45?"⭐":"✨";
-      e.style.left=Math.random()*100+"vw"; e.style.top="-25px";
+      e.className="float"; e.textContent=Math.random()>.4?"⭐":"✨";
+      e.style.left=Math.random()*100+"vw"; e.style.top="-20px";
       document.body.appendChild(e);
-      setTimeout(()=>e.remove(),3000);
-    },i*55);
+      setTimeout(()=>e.remove(),2800);
+    },i*50);
   }
 }
+
 function hearts(){
-  for(let i=0;i<18;i++){
+  for(let i=0;i<16;i++){
     setTimeout(()=>{
       const e=document.createElement("div");
       e.className="heart"; e.textContent="♥";
       e.style.left=(20+Math.random()*60)+"vw";
       e.style.top=(45+Math.random()*20)+"vh";
       document.body.appendChild(e);
-      setTimeout(()=>e.remove(),1300);
-    },i*55);
+      setTimeout(()=>e.remove(),1200);
+    },i*50);
   }
 }
-function updateCounter(){
-  const d=birthday-Date.now();
-  const el=document.getElementById("counter");
-  if(d<=0){el.textContent="🎂 Bugün Merv'in günü! 🌟";return}
-  const days=Math.floor(d/86400000);
-  const hours=Math.floor(d%86400000/3600000);
-  const mins=Math.floor(d%3600000/60000);
-  const secs=Math.floor(d%60000/1000);
-  el.textContent=`🎂 ${days} gün ${hours} saat ${mins} dk ${secs} sn`;
-}
-setInterval(updateCounter,1000); updateCounter();
 
-document.getElementById("openBtn").onclick=()=>{
+function triggerCelebration(){
+  if(autoOpened) return;
+  autoOpened = true;
   document.getElementById("hero").style.display="none";
   document.getElementById("content").classList.add("show");
   sparkle();
-  launchFirework();
-  launchFirework();
-  pop("Merv için özel olarak açıldı 🤭");
+  // Gece 12'de açıldığı an havai fişekler coşsun!
+  for(let i=0; i<4; i++){
+    setTimeout(() => launchFirework(), i * 300);
+  }
+  pop("İyi ki doğdun Merv! 🤍🌟");
+}
+
+function updateCounter(){
+  const d = birthday - Date.now();
+  const el = document.getElementById("counter");
+  
+  if(d <= 0){
+    el.textContent = "🎂 Bugün Merv'in günü! 🌟";
+    // Eğer saat gelmişse veya geçdiyse sayfayı direkt otomatik aç ve havai fişek patlat!
+    triggerCelebration();
+    return;
+  }
+  
+  const days = Math.floor(d/86400000);
+  const hours = Math.floor(d%86400000/3600000);
+  const mins = Math.floor(d%3600000/60000);
+  const secs = Math.floor(d%60000/1000);
+  el.textContent = `🎂 ${days} gün ${hours} saat ${mins} dk ${secs} sn`;
+}
+setInterval(updateCounter, 1000); 
+updateCounter();
+
+// Eğer sayfanın yüklendiği an zaten saat 12:00'yi geçtiyse direkt kutlamayı başlat
+if(Date.now() >= birthday){
+  triggerCelebration();
+}
+
+document.getElementById("openBtn").onclick = () => {
+  triggerCelebration();
 };
 
-document.getElementById("musicBtn").onclick=async()=>{
+document.getElementById("musicBtn").onclick = async(e) => {
   try{
-    if(music.paused){await music.play();event.target.textContent="⏸ Durdur"}
-    else{music.pause();event.target.textContent="▶ Başlat"}
-  }catch(e){pop("Müziği başlatmak için tekrar dokun 🤍")}
+    if(music.paused){await music.play();e.target.textContent="⏸ Durdur"}
+    else{music.pause();e.target.textContent="▶ Başlat"}
+  }catch(err){pop("Müziği başlatmak için dokun 🤍")}
 };
 
-document.getElementById("noteBtn").onclick=()=>{
+document.getElementById("noteBtn").onclick = () => {
   document.getElementById("message").classList.toggle("show");
   sparkle();
 };
 
-document.getElementById("heartBtn").onclick=()=>{
-  hearts(); pop("Tamam, kalbi gördüm 😂🤍");
+document.getElementById("heartBtn").onclick = () => {
+  hearts(); pop("Kalbi gördük! 😂🤍");
 };
 
 // --- ÇUBUKLARDAN KALP OLUŞTURMA ANIMASYONU ---
 let hAnimId = null;
-document.getElementById("mergeBtn").onclick=()=>{
+document.getElementById("mergeBtn").onclick = () => {
   const area = document.getElementById("heartArea");
   area.style.display = "flex";
   pop("Çubuklar birleşip kalp oluyor... 💖");
@@ -451,17 +478,17 @@ document.getElementById("mergeBtn").onclick=()=>{
   drawLines();
 };
 
-document.getElementById("secretBtn").onclick=()=>{
+document.getElementById("secretBtn").onclick = () => {
   pop("Gizli butonu buldun. 👀🌟");
   setTimeout(()=>alert("Merv🌟, bu sayfayı açtıysan görev tamamlandı. İyi ki doğdun 🤍"),300);
 };
 
-document.getElementById("gameBtn").onclick=()=>{
+document.getElementById("gameBtn").onclick = () => {
   document.getElementById("game").classList.toggle("show");
   pop("10 saniye! Yıldızı yakala ⭐");
 };
 
-document.getElementById("gameTarget").onclick=()=>{
+document.getElementById("gameTarget").onclick = () => {
   if(!gameRunning){
     gameRunning=true; score=0;
     const start=Date.now();
@@ -477,7 +504,7 @@ document.getElementById("gameTarget").onclick=()=>{
     score++;
     document.getElementById("score").textContent="Skor: "+score;
     const t=document.getElementById("gameTarget");
-    t.style.transform=`translate(${Math.random()*90-45}px,${Math.random()*70-35}px)`;
+    t.style.transform=`translate(${Math.random()*80-40}px,${Math.random()*60-30}px)`;
   }
 };
 </script>
